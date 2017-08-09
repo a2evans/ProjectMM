@@ -1,4 +1,7 @@
-# file for the matrix class                                                     Author: Andrew Evans
+__author__ = 'Andrew Evans'
+__email__ = 'andrewevans7396@gmail.com'
+
+# file for the matrix class
 
 
 class MatrixC:
@@ -16,11 +19,30 @@ class MatrixC:
     def __setitem__(self, key, value):
         self.data[[key[0]][key[1]]] = value
 
+    # addition
+    def __add__(self, other):
+        if self.c and self.r is not other.c and other.r:
+            print("Error: incompatible size of matrices output not defined.")
+            return
+        for i in range(0, self.r):
+            for j in range(0, self.c):
+                self.data[i][j] += other.data[i][j]
+        return self
+
+    def __sub__(self, other):
+        if self.c and self.r is not other.c and other.r:
+            print("Error: incompatible size of matrices output not defined.")
+            return
+        for i in range(0, self.r):
+            for j in range(0, self.c):
+                self.data[i][j] -= other.data[i][j]
+        return self
+
     # multiply two matrices together
     def __mul__(self, other):
         if self.c != other.r:
-                print("Error: incompatible size of matrices output not defined.")
-                return
+            print("Error: incompatible size of matrices output not defined.")
+            return
         matrixA = MatrixC(self.r, other.c)
         # grab the row of self and column
         for i in range(0, self.r):
