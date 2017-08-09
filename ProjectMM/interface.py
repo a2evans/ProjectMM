@@ -1,5 +1,5 @@
+# main interface file for Project MM matrix multiplier                              Author: Andrew Evans
 import MatrixC
-# main interface file for Project MM matrix multiplier
 
 matrixRowSize = int(input("how many rows(x) for the first matrix: "))
 matrixColumnSize = int(input("how many columns(y) for the first matrix: "))
@@ -28,5 +28,9 @@ for p in range(0, matrixRowSize2):
         print("[Matrix 2]: please enter the values for row ", p, "column ", q)
         matrix2[p][q] = int(input(""))
 
+# a little dangerous, * is a little undefined in that it will return none type if matrices are incompatible
 a = matrix1 * matrix2
-a.print_mc()
+if a is not None:
+    a.print_mc()
+else:
+    print("Error")

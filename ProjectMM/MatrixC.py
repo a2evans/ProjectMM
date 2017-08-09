@@ -1,4 +1,4 @@
-# file for the matrix class
+# file for the matrix class                                                     Author: Andrew Evans
 
 
 class MatrixC:
@@ -18,7 +18,9 @@ class MatrixC:
 
     # multiply two matrices together
     def __mul__(self, other):
-        if self.c != other.r: return print("Error: incompatible size of matrices output not defined.")
+        if self.c != other.r:
+                print("Error: incompatible size of matrices output not defined.")
+                return
         matrixA = MatrixC(self.r, other.c)
         # grab the row of self and column
         for i in range(0, self.r):
